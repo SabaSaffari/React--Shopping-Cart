@@ -14,7 +14,7 @@ class App extends Component {
         {id:5, value: 0}
     ]
   }
-  handleIncreament = (counter) => {
+  handleIncrement = (counter) => {
       const counters = [...this.state.counters];
       const index = counters.indexOf(counter);
       counters[index] = {...counter};
@@ -41,7 +41,7 @@ class App extends Component {
           <div style={{float: "left"}}>
             <Counters 
               counters={this.state.counters}
-              onIncreament={this.handleIncreament} 
+              onIncrement={this.handleIncrement} 
               onDelete={this.handleDelete}
             />
             <Button color="success" className="btn-sm m-2" onClick={this.handleReset}> Reset</Button>

@@ -6,12 +6,12 @@ class Counter extends Component {
     render() { 
         const {
             counter,
-            onIncreament,
+            onIncrement,
             onDelete
                 } = this.props;
         return ( 
             <div>
-                <Button color="primary" className="btn-sm" onClick={() => onIncreament(counter)}>
+                <Button color="primary" className="btn-sm" onClick={() => onIncrement(counter)}>
                     Add
                 </Button>
                 <Button color="danger" className="btn-sm m-2" onClick={() => onDelete(counter.id)}>
