@@ -1,26 +1,21 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Counter from './counter';
+import { connect } from 'react-redux';
 
-
-class Counters extends Component {
-    render() { 
-        const{
-            onDelete,
-            onIncrement,
-            counters
-        } = this.props;
-        return ( 
-            <div style={{float: "left"}}>
-                {counters.map(counter =>
-                    <Counter key={counter.id}
-                        counter={counter}
-                        onIncrement={onIncrement}
-                        onDelete={onDelete}
-                    />
-                )}
-            </div>
-         );
-    }
+const Counters = ({counters}) => {
+    return ( 
+        <div style={{float: "left"}}>
+            {counters.map(counter =>
+                <Counter key={counter.id}
+                    counter={counter}
+                />
+            )}
+        </div>
+     );
 }
  
-export default Counters;
+export default connect(state => {
+    return{
+        counters: state
+    }
+})(Counters);

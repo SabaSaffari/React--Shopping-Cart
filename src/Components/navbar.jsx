@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import {Navbar, NavbarBrand, Badge} from 'reactstrap';
 
 const NavBar = ({totalCounters}) => {
@@ -13,5 +14,9 @@ const NavBar = ({totalCounters}) => {
         </div>
      );
 }
-export default NavBar;
+export default connect(state =>{
+    return{
+    totalCounters: state.filter(c => c.value > 0).length
+    }
+})(NavBar);
  
